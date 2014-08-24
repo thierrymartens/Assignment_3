@@ -62,7 +62,6 @@ allData<-allData[,c(3,1,2,4:ncol(allData))]
 subsetted_Data<-cbind(allData[,c(1,3)],subset(allData,select=grepl("mean",colnames(allData))|grepl("std",colnames(allData))))
 
 
-
 #Correct the Typo's: columnnames with "BodyBody" instead of "Body" 
 colnames(subsetted_Data)<-gsub("BodyBody","Body",colnames(subsetted_Data))
 
@@ -77,5 +76,12 @@ detach(subsetted_Data)
 
 #Rename columns 1 and 2 for readability
 colnames(aggData)[c(1,2)]<-c("Subject","Activity")
+#Ensure Subject is a Factor
+aggData[, 1] <- as.factor(aggData[, 1])
+#round all numbers to 3 digits
+aggData[c(1:nrow(aggData)),c(3:ncol(aggData))]<-round(aggData[c(1:nrow(aggData)),c(3:ncol(aggData))],digits=3)
 
 # The name of the Tidy Data Set is aggData
+
+#clean up temporary data
+rm("testData", "testLabels", "testSubject", "trainData", "trainLabels", "trainSubject", "features", "subsetted_Data","ActivityLabels")

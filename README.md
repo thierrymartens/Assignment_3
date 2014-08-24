@@ -79,6 +79,7 @@ and 13 in the Frequency domain
 - fBodyAccJerkMag
 - fBodyGyroMag
 - fBodyGyroJerkMag
+
 For these last ones, besides a mean and a stdev, there is also a "mean Frequency", which I have also opted to retain
 => thus leading to 2 x 20 + 3 x 13 = 79 measures.
 
