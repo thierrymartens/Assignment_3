@@ -60,25 +60,25 @@ resulting data frame still has "Subject" as the first column.
 ###======
 Next, only the variables showing either the mean and standard deviation for each measurement are extracted (subsetted).
 I have, delibarately, chosen to take the mean & standard deviation of 20 variables in the "time domain"
-  * tBodyAcc-XYZ => since there are 3 axis, these are 3 variables (same for the next 4)
-	* tGravityAcc-XYZ
-	* tBodyAccJerk-XYZ
-	* tBodyGyro-XYZ
-	* tBodyGyroJerk-XYZ
-	* tBodyAccMag => this is just 1 variable
-	* tGravityAccMag
-	* tBodyAccJerkMag
-	* tBodyGyroMag
-	* tBodyGyroJerkMag
+- tBodyAcc-XYZ => since there are 3 axis, these are 3 variables (same for the next 4)
+- tGravityAcc-XYZ
+- tBodyAccJerk-XYZ
+- tBodyGyro-XYZ
+- tBodyGyroJerk-XYZ
+- tBodyAccMag => this is just 1 variable
+- tGravityAccMag
+- tBodyAccJerkMag
+- tBodyGyroMag
+- tBodyGyroJerkMag
 
 and 13 in the Frequency domain
-	* fBodyAcc-XYZ => since there are 3 axis, there are 3 variables (same for the next 2)
-	* fBodyAccJerk-XYZ
-	* fBodyGyro-XYZ
-	* fBodyAccMag => just one variable
-	* fBodyAccJerkMag
-	* fBodyGyroMag
-	* fBodyGyroJerkMag
+- fBodyAcc-XYZ => since there are 3 axis, there are 3 variables (same for the next 2)
+- fBodyAccJerk-XYZ
+- fBodyGyro-XYZ
+- fBodyAccMag => just one variable
+- fBodyAccJerkMag
+- fBodyGyroMag
+- fBodyGyroJerkMag
 For these last ones, besides a mean and a stdev, there is also a "mean Frequency", which I have also opted to retain
 => thus leading to 2 x 20 + 3 x 13 = 79 measures.
 
