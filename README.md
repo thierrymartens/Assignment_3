@@ -1,18 +1,10 @@
----
-title: "README"
-author: "Thierry Martens"
-date: "Sunday, August 24, 2014"
-output: html_document
----
+#==================================================================
+#Creating a tidy data set, starting from following dataset:
+#Human Activity Recognition Using Smartphones Dataset
+#==================================================================
 
-==================================================================
-Creating a tidy data set, starting from following dataset:
-Human Activity Recognition Using Smartphones Dataset
-Version 1.0
-==================================================================
-
-ORIGINAL DATASET
-================
+##ORIGINAL DATASET
+##================
 The original dataset was created by Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
 This link will guide you to a zip-file containing the base data:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
@@ -31,8 +23,8 @@ I will not detail the contents of each of these files, but refer the interested 
 features_info.txt for a detailed explanation of the files, their content, and how the dataset was prepared!
 
 
-GETTING TO A TIDY DATASET
-=========================
+##GETTING TO A TIDY DATASET
+##=========================
 
 I did not follow "literally" the sequence as suggested in the task description.
 As such, in the explanation that follows "STEP 1 and 4" will be the first steps,
@@ -41,8 +33,8 @@ While this may seem a bit confusing, I hope the explanations here will dispell t
 
 SO, the following steps were performed to get to a tidy dataset:
 
-STEP 1 & 4
-==========
+###STEP 1 & 4
+###==========
 In this part, the training and the test sets were merged together to create one data set.
 The columns containing the results were named, using the descriptive variable names, 
 AS PROVIDED BY the original researchers.
@@ -57,48 +49,45 @@ However, 2 columns are added (to the left): Subject (identifying the volunteer i
 as well as an Activity_ID (identifying which of the 6 activities were performed during the data gathering).
  
 
-STEP 3
-======
+###STEP 3
+###======
 Here, the activity_ID (a number from 1 to 6) is "translated" to an activity description ("LAYING", "SITTING", ...)
 After linking the Activity_ID with Activity (description), I rearrange the columns on the left a bit so that the
 resulting data frame still has "Subject" as the first column.
 
 
-STEP 2
-======
+###STEP 2
+###======
 Next, only the variables showing either the mean and standard deviation for each measurement are extracted (subsetted).
-I have, deliberately, chosen to take the mean & standard deviation of 20 variables in the "time domain"
-  tBodyAcc-XYZ => since there are 3 axis, these are 3 variables (same for the next 4)
-	tGravityAcc-XYZ
-	tBodyAccJerk-XYZ
-	tBodyGyro-XYZ
-	tBodyGyroJerk-XYZ
-	tBodyAccMag => this is just 1 variable
-	tGravityAccMag
-	tBodyAccJerkMag
-	tBodyGyroMag
-	tBodyGyroJerkMag
+I have, delibarately, chosen to take the mean & standard deviation of 20 variables in the "time domain"
+  * tBodyAcc-XYZ => since there are 3 axis, these are 3 variables (same for the next 4)
+	* tGravityAcc-XYZ
+	* tBodyAccJerk-XYZ
+	* tBodyGyro-XYZ
+	* tBodyGyroJerk-XYZ
+	* tBodyAccMag => this is just 1 variable
+	* tGravityAccMag
+	* tBodyAccJerkMag
+	* tBodyGyroMag
+	* tBodyGyroJerkMag
 
 and 13 in the Frequency domain
-	fBodyAcc-XYZ => since there are 3 axis, there are 3 variables (same for the next 2)
-	fBodyAccJerk-XYZ
-	fBodyGyro-XYZ
-	fBodyAccMag => just one variable
-	fBodyAccJerkMag
-	fBodyGyroMag
-	fBodyGyroJerkMag
+	* fBodyAcc-XYZ => since there are 3 axis, there are 3 variables (same for the next 2)
+	* fBodyAccJerk-XYZ
+	* fBodyGyro-XYZ
+	* fBodyAccMag => just one variable
+	* fBodyAccJerkMag
+	* fBodyGyroMag
+	* fBodyGyroJerkMag
 For these last ones, besides a mean and a stdev, there is also a "mean Frequency", which I have also opted to retain
 => thus leading to 2 x 20 + 3 x 13 = 79 measures.
 
 
-STEP 5
-======
+###STEP 5
+###======
 We now take the average for each variable (i.e. 79 averages), which together with the identifiers for Subject, and Activity,
 lead to 81 columns in the resulting data frame,
 and since there are 6 different exercises performed by each of the 30 volunteers, there are 180 observations
 in our final (tidy) data set!
 
 This data.frame is named aggData
-
-
- 
